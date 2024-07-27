@@ -28,9 +28,9 @@ def broadcast_message(message, sender_socket):
 # Main function to start the server
 def start_server():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server.bind(('0.0.0.0', 12345))
+    server.bind(('0.0.0.0', 8080))
     server.listen(5)
-    print("[*] Server listening on port 12345")
+    print("[*] Server listening on port 8080")
 
     while True:
         client_socket, client_address = server.accept()
