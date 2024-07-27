@@ -25,18 +25,17 @@ def broadcast_message(message, sender_socket):
             except:
                 clients.remove(client)
 
-HOST = ""
-PORT = 0
+
 # Main function to start the server
 def start_server():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server.bind((HOST, PORT))
-    # Get the actual bound address
+    server.bind(('',8080))
     actual_host, actual_port = server.getsockname()
     print(f"Socket bound to {actual_host}:{actual_port}")
 
     while True:
         client_socket, client_address = server.accept()
+        print(f"Connection from {client_address} established!")
         clients.append(client_socket)
         client_handler = threading.Thread(target=handle_client, args=(client_socket, client_address))
         client_handler.start()
