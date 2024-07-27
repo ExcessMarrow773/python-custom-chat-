@@ -25,12 +25,15 @@ def broadcast_message(message, sender_socket):
             except:
                 clients.remove(client)
 
+HOST = ""
+PORT = 0
 # Main function to start the server
 def start_server():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server.bind(('', 8080))
-    server.listen(5)
-    print("[*] Server listening on port 8080")
+    server.bind((HOST, PORT))
+    # Get the actual bound address
+    actual_host, actual_port = server.getsockname()
+    print(f"Socket bound to {actual_host}:{actual_port}")
 
     while True:
         client_socket, client_address = server.accept()
