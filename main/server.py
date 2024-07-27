@@ -33,10 +33,10 @@ def start_server():
     print(f"Socket bound to {actual_host}:{actual_port}")
 
     while True:
-        address, port = server.accept()
-        print(f"Connection from {port} established!")
-        clients.append(port)
-        client_handler = threading.Thread(target=handle_client, args=(address, port))
+        address = server.accept()
+        print(f"Connection from {address} established!")
+        clients.append(address)
+        client_handler = threading.Thread(target=handle_client, args=(address, address))
         client_handler.start()
 
 clients = []
