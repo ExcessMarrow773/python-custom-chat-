@@ -10,7 +10,9 @@ def play_sound(i):
     if i == 1:
         pygame.mixer.music.load("main\music\Bad To The Bone Riff Sound Effect.mp3")
     elif i == 2:
-        pygame.mixer.music.load(r"main\music\taco-bell.mp3")
+        pygame.mixer.music.load(r"main\music\taco-bell-extra.mp3")
+    elif i == 3:
+        pygame.mixer.music.load(r"main\music\taco-bell-bong-(normal).mp3")
     pygame.mixer.music.play()
 def receive_messages():
     while True:
@@ -22,6 +24,8 @@ def receive_messages():
                 play_sound(1)
             elif message == "tbbe.mp3":
                 play_sound(2)
+            elif message == "tbbn.mp3":
+                play_sound(3)
             print(message)
         except:
             break
@@ -34,6 +38,8 @@ def send_messages():
             play_sound(1)
         elif message == "tbbe.mp3":
             play_sound(2)
+        elif message == "tbbn.mp3":
+            play_sound(3)
         elif message == "{[exit]}":
             exit()
         else:
