@@ -2,15 +2,15 @@ from os import environ
 environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "1"
 import socket, threading, pygame, sys
 
-f = open(r"custom chat\name.txt", "r")
+f = open(f"main/name.txt", "r")
 username = f.read()
 pygame.mixer.init()
 
 def play_sound(i):
     if i == 1:
-        pygame.mixer.music.load("custom chat\music\Bad To The Bone Riff Sound Effect.mp3")
+        pygame.mixer.music.load("main\music\Bad To The Bone Riff Sound Effect.mp3")
     elif i == 2:
-        pygame.mixer.music.load(r"custom chat\music\taco-bell.mp3")
+        pygame.mixer.music.load(r"main\music\taco-bell.mp3")
     pygame.mixer.music.play()
 def receive_messages():
     while True:
